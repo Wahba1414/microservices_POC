@@ -1,0 +1,90 @@
+Step 1/8 : FROM node:10-slim
+ ---> 8d33f30db9b5
+Step 2/8 : WORKDIR /opt/node_app
+ ---> Using cache
+ ---> 93d6f8e9a012
+Step 3/8 : COPY package*.json ./
+ ---> Using cache
+ ---> 37f191d59061
+Step 4/8 : RUN npm install && npm cache clean --force
+ ---> Using cache
+ ---> 5aa214807876
+Step 5/8 : ENV PATH /opt/node_app/node_modules/.bin:$PATH
+ ---> Using cache
+ ---> 94b8cc85902f
+Step 6/8 : WORKDIR /opt/node_app/app
+ ---> Using cache
+ ---> a7f4a4b71f35
+Step 7/8 : COPY . .
+ ---> 02b515fecdab
+Step 8/8 : CMD [ "node", "./bin/www" ]
+ ---> Running in 636714f9bccd
+Removing intermediate container 636714f9bccd
+ ---> 28142fe46519
+
+Successfully built 28142fe46519
+Successfully tagged microservices_poc_manager:latest
+Step 1/8 : FROM node:10-slim
+ ---> 8d33f30db9b5
+Step 2/8 : WORKDIR /opt/node_app
+ ---> Using cache
+ ---> 93d6f8e9a012
+Step 3/8 : COPY package*.json ./
+ ---> Using cache
+ ---> e3a0a7bc32b1
+Step 4/8 : RUN npm install && npm cache clean --force
+ ---> Using cache
+ ---> 6ed0f94ec864
+Step 5/8 : ENV PATH /opt/node_app/node_modules/.bin:$PATH
+ ---> Using cache
+ ---> 7e62c83827e9
+Step 6/8 : WORKDIR /opt/node_app/app
+ ---> Using cache
+ ---> e4efb12b5a8f
+Step 7/8 : COPY . .
+ ---> d8fa3417e0e8
+Step 8/8 : CMD [ "node", "./bin/www" ]
+ ---> Running in e159093b3374
+Removing intermediate container e159093b3374
+ ---> 6942434eeaca
+
+Successfully built 6942434eeaca
+Successfully tagged microservices_poc_watches:latest
+Attaching to microservices_poc_watches_1, microservices_poc_manager_1
+[36mwatches_1  |[0m [33m[nodemon] 1.19.2[39m
+[36mwatches_1  |[0m [33m[nodemon] to restart at any time, enter `rs`[39m
+[36mwatches_1  |[0m [33m[nodemon] watching dir(s): *.*[39m
+[36mwatches_1  |[0m [32m[nodemon] starting `node --inspect=0.0.0.0:9229 ./bin/www`[39m
+[36mwatches_1  |[0m Debugger listening on ws://0.0.0.0:9229/47f12dc2-86d7-420a-bd4c-f442e6530730
+[36mwatches_1  |[0m For help, see: https://nodejs.org/en/docs/inspector
+[33mmanager_1  |[0m [33m[nodemon] 1.19.2[39m
+[33mmanager_1  |[0m [33m[nodemon] to restart at any time, enter `rs`[39m
+[33mmanager_1  |[0m [33m[nodemon] watching dir(s): *.*[39m
+[33mmanager_1  |[0m [32m[nodemon] starting `node --inspect=0.0.0.0:9229 ./bin/www`[39m
+[33mmanager_1  |[0m Debugger listening on ws://0.0.0.0:9229/557fc91a-b510-4cf0-860e-9f823ad22916
+[33mmanager_1  |[0m For help, see: https://nodejs.org/en/docs/inspector
+[33mmanager_1  |[0m Manager::Get main page
+[33mmanager_1  |[0m ReferenceError: WATCHES_PORT is not defined
+[33mmanager_1  |[0m     at /opt/node_app/app/routes/index.js:11:62
+[33mmanager_1  |[0m     at Layer.handle [as handle_request] (/opt/node_app/node_modules/express/lib/router/layer.js:95:5)
+[33mmanager_1  |[0m     at next (/opt/node_app/node_modules/express/lib/router/route.js:137:13)
+[33mmanager_1  |[0m     at Route.dispatch (/opt/node_app/node_modules/express/lib/router/route.js:112:3)
+[33mmanager_1  |[0m     at Layer.handle [as handle_request] (/opt/node_app/node_modules/express/lib/router/layer.js:95:5)
+[33mmanager_1  |[0m     at /opt/node_app/node_modules/express/lib/router/index.js:281:22
+[33mmanager_1  |[0m     at Function.process_params (/opt/node_app/node_modules/express/lib/router/index.js:335:12)
+[33mmanager_1  |[0m     at next (/opt/node_app/node_modules/express/lib/router/index.js:275:10)
+[33mmanager_1  |[0m     at Function.handle (/opt/node_app/node_modules/express/lib/router/index.js:174:3)
+[33mmanager_1  |[0m     at router (/opt/node_app/node_modules/express/lib/router/index.js:47:12)
+[33mmanager_1  |[0m [32m[nodemon] restarting due to changes...[39m
+[33mmanager_1  |[0m [32m[nodemon] starting `node --inspect=0.0.0.0:9229 ./bin/www`[39m
+[33mmanager_1  |[0m Debugger listening on ws://0.0.0.0:9229/b51f7bf1-e95f-4e48-b57c-9566b7ee1632
+[33mmanager_1  |[0m For help, see: https://nodejs.org/en/docs/inspector
+[33mmanager_1  |[0m Manager::Get main page
+[33mmanager_1  |[0m watchesListAPI:  http://watches:3000/watches
+[36mwatches_1  |[0m Watches service::Get watches list
+[36mwatches_1  |[0m [0mGET /watches [32m200 [0m14.883 ms - 33[0m
+[33mmanager_1  |[0m [32m[nodemon] restarting due to changes...[39m
+[33mmanager_1  |[0m [32m[nodemon] starting `node --inspect=0.0.0.0:9229 ./bin/www`[39m
+[33mmanager_1  |[0m Debugger listening on ws://0.0.0.0:9229/59c0fe3a-d05e-4f42-8b7a-504704f30a5b
+[33mmanager_1  |[0m For help, see: https://nodejs.org/en/docs/inspector
+Gracefully stopping... (press Ctrl+C again to force)
