@@ -10,11 +10,15 @@ router.get('/', function (req, res, next) {
 
   var watchesListAPI = `http://${process.env.WATCHES_HOST}:${process.env.WATCHES_PORT}/watches`
 
-  // console.log('watchesListAPI: ', watchesListAPI);
+  console.log('watchesListAPI: ', watchesListAPI);
 
   request(watchesListAPI , function(error,response, body)  {
+    if(error){
+      console.log('Manager::error: ' , error);
+    }else{
+      res.send('From Manager service: ' + body);
+    }
     // console.log('Manager:: response from watches service: ', response);
-    res.send('From Manager service: ' + body);
   })
 
 
