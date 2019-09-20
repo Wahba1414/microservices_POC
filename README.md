@@ -1,4 +1,4 @@
-# microservices_POC
+# Microservices (POC)
 ## Description
 This project focuses on trying many concepts relates to mircoservices using Node.js, Docker and Docker-compose.
 
